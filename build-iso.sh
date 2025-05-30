@@ -3,14 +3,6 @@
 # Make script stop on first error
 set -e
 
-# Ensure boot directory structure exists
-mkdir -p iso/boot/grub/i386-pc
-
-# Copy necessary GRUB files (only if they don't exist)
-if [ ! -f iso/boot/grub/i386-pc/eltorito.img ]; then
-  cp /usr/lib/grub/i386-pc/eltorito.img iso/boot/grub/i386-pc/
-fi
-
 # Create ISO with legacy IDE and USB support modules
 grub-mkrescue \
   --output=usbcdrom-bootcd.iso \
