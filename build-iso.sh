@@ -1,13 +1,13 @@
 #!/bin/bash
-#grub-mkrescue -o bootable.iso iso/
+
 # Make script stop on first error
 set -e
 
-# Create ISO with IDE-optimized module loading
+# Create ISO with ALL modules included
 grub-mkrescue \
   --output=usbcdrom-bootcd.iso \
-  --install-modules="ata part_msdos fat iso9660 usb uhci ohci ehci usbms chain biosdisk normal search ls help" \
-  --modules="ata part_msdos fat iso9660 usb normal search ls" \
+  --install-modules="all" \
+  --modules="ata part_msdos part_gpt fat ntfs ext2 iso9660 udf hfsplus usb uhci ohci ehci usbms pata ahci normal chain search configfile ls cat echo sleep font gfxterm biosdisk boot linux linux16 loadenv minicmd reboot halt memdisk test video" \
   iso/ \
   -- -volid "USBHLPCD"
   
