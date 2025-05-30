@@ -15,7 +15,7 @@ CORE_MODULES="ata biosdisk pata part_msdos fat iso9660 normal search configfile 
 USB_MODULES="usb uhci ohci ehci usbms"
 
 # Additional useful modules
-EXTRA_MODULES="chain reboot halt font gfxterm"
+EXTRA_MODULES="ls echo cat help sleep test probe chain"
 
 # Combine all modules
 ALL_MODULES="${CORE_MODULES} ${USB_MODULES} ${DIAGNOSTIC_MODULES} ${EXTRA_MODULES}"
