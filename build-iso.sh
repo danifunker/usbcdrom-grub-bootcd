@@ -5,8 +5,10 @@ set -e
 
 echo "Creating bootable USB CD-ROM helper ISO..."
 
+echo $(git rev-parse HEAD) > iso/revision.txt
+
 # Use absolute minimal modules to reduce errors and add "regexp" for pattern matching
-MINIMAL_MODULES="part_msdos fat iso9660 normal linux linux16 memdisk chain ls echo regexp search search_label boot"
+MINIMAL_MODULES="part_msdos fat iso9660 normal linux linux16 memdisk chain ls echo regexp search search_label boot usb"
 
 # Copy memdisk to correct location if not already there
 if [ ! -f iso/boot/memdisk ]; then
