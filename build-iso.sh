@@ -23,7 +23,7 @@ grub-mkrescue \
   --modules="${MINIMAL_MODULES}" \
   --directory=/usr/lib/grub/i386-pc \
   iso/ \
-  -- -volid "USBHLPCD" -r -J -no-emul-boot
+  -- -volid "USBHLPCD"
   
 echo "ISO created successfully as usbcdrom-bootcd.iso"
 echo "Volume ID: USBHLPCD"
