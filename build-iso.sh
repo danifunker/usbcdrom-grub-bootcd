@@ -16,19 +16,19 @@ if [ ! -f iso/boot/memdisk ]; then
   echo "WARNING: Could not find memdisk, please copy it manually to iso/boot/"
 fi
 
-# Create a custom early config file to handle hd31 issues
+# Instead of using --early-config, include these settings in grub.cfg
+# (Create a custom early config file to reference in grub.cfg)
 cat > iso/boot/grub/early_config.cfg << EOF
 # Early config to prevent disk scanning
 set GRUB_DISABLE_DISK_SCAN=true
 EOF
 
-# Create ISO with minimal modules and explicit early config
+# Create ISO with minimal modules
 echo "Running grub-mkrescue with minimal modules..."
 grub-mkrescue \
   --output=usbcdrom-bootcd.iso \
   --modules="${MINIMAL_MODULES}" \
   --directory=/usr/lib/grub/i386-pc \
-  --early-config=iso/boot/grub/early_config.cfg \
   iso/ \
   -- -volid "USBHLPCD"
   
