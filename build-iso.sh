@@ -6,6 +6,7 @@ set -e
 # Create ISO with legacy IDE and USB support modules
 grub-mkrescue \
   --output=usbcdrom-bootcd.iso \
+  --modules="biosdisk ata pata part_msdos fat iso9660 usb uhci ohci ehci usbms search ls echo" \
   iso/ \
   -- -volid "USBHLPCD"
   
